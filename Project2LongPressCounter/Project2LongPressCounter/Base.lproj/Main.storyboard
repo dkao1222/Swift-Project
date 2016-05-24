@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project2LongPressCounter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4V-LD-4Qo">
+                                <rect key="frame" x="20" y="20" width="280" height="57"/>
+                                <color key="backgroundColor" red="0.97018160994764402" green="0.97018160994764402" blue="0.97018160994764402" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="jhp-1A-Fik"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0d-tj-Ng1">
+                                <rect key="frame" x="20" y="505" width="280" height="48"/>
+                                <color key="backgroundColor" red="0.97018160994764402" green="0.97018160994764402" blue="0.97018160994764402" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="mRx-4O-GW4"/>
+                                </constraints>
+                                <state key="normal" title="Press"/>
+                                <connections>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OLC-C1-01Y"/>
+                                    <outletCollection property="gestureRecognizers" destination="p8V-4d-fXK" appends="YES" id="i3f-ip-e7c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKA-19-u0y">
+                                <rect key="frame" x="20" y="85" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.97018160994764402" green="0.97018160994764402" blue="0.97018160994764402" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zyz-A7-729"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="V4V-LD-4Qo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Tcr-1j-9Iy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x0d-tj-Ng1" secondAttribute="bottom" constant="15" id="erA-jl-BS7"/>
+                            <constraint firstItem="AKA-19-u0y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fxd-d9-YyL"/>
+                            <constraint firstItem="V4V-LD-4Qo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gRQ-yr-gHh"/>
+                            <constraint firstItem="V4V-LD-4Qo" firstAttribute="trailing" secondItem="x0d-tj-Ng1" secondAttribute="trailing" id="l0H-yC-p50"/>
+                            <constraint firstItem="V4V-LD-4Qo" firstAttribute="leading" secondItem="x0d-tj-Ng1" secondAttribute="leading" id="r4m-CW-qiN"/>
+                            <constraint firstItem="V4V-LD-4Qo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="ycH-Ek-pxO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CounterLabel" destination="V4V-LD-4Qo" id="r2A-wW-YVa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="p8V-4d-fXK">
+                    <connections>
+                        <action selector="longPressButton:" destination="BYZ-38-t0r" id="YyH-fS-G5f"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="162" y="338"/>
+        </scene>
+    </scenes>
+</document>
