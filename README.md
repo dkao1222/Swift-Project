@@ -1,6 +1,8 @@
-#Swift Project
+#Swift Project#
 
-Project 1 :: Tap Counter  
-Project 2 :: Long press Counter  
-Project 3 :: iAD with Google Mobile AD
+Detail step please watch to logdown [link](http://dkao1222-blog.logdown.com)
+
+1. Project 1 :: Tap Counter  
+2. Project 2 :: Long press Counter  
+3. Project 3 :: iAD with Google Mobile AD
 
