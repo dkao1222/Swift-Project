@@ -123,9 +123,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         labelBMIAnswer.text = ""
         labelBMIValue.text = "0"
         
-        //bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        //bannerView.rootViewController = self
-        //bannerView.load(GADRequest())
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
 
         
         // Do any additional setup after loading the view, typically from a nib.
