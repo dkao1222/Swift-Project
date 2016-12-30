@@ -79,6 +79,7 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
         //return objects.count
         
         return weratherArray.count
+        //return County.count
 
     }
 
@@ -110,18 +111,22 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         do {
 
+            //var dataArray = [AnyObject]()
             let data = try Data(contentsOf: location)
 
-            let dataDic = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers ) as? [[String : AnyObject]]
-            //weratherArray = dataDic!?["County"] as! [AnyObject]
-  
-            for weratherArray in dataDic!! {
-                let county : AnyObject! = weratherArray["County"]
-                print(county)
+            if let dataDic = try? JSONSerialization.jsonObject(with: data, options: .allowFragments ) as? [[String : AnyObject]] {
+                //weratherArray = dataDic[["County"]] as! [AnyObject]
+                for dataArray in dataDic! {
+                    let County : AnyObject! = dataArray["County"]
+                    print(County)
+//                    self.weratherArray.append(County)
+                    weratherArray.append(County)
+                    
+                    
+                }
                 
-                //weratherArray["County"] as! [AnyObject]
             }
-
+ 
             self.tableView.reloadData()
            
         } catch {
