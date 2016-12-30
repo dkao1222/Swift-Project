@@ -14,18 +14,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var CounterLabel: UILabel!
     
-    @IBAction func tapButton(sender: AnyObject) {
+    @IBAction func tapButton(_ sender: AnyObject) {
         step = step + 1
         updateLabel()
     }
         
-    @IBAction func longPressButton(sender: UILongPressGestureRecognizer) {
-        if sender.state == .Changed {
+    @IBAction func longPressButton(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .changed {
             step = step + 1
             updateLabel()
         }
     }
-    @IBAction func resetButton(sender: AnyObject) {
+    @IBAction func resetButton(_ sender: AnyObject) {
         step = 0
         updateLabel()
     }

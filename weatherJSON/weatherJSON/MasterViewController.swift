@@ -14,6 +14,7 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
     
     var objects = [Any]()
     var weratherArray = [AnyObject]()
+
     
 
     override func viewDidLoad() {
@@ -87,6 +88,7 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
         //let object = objects[indexPath.row] as! NSDate
         //cell.textLabel!.text = object.description
         //cell.textLabel?.text = weratherArray[indexPath.row]["A_Name_Ch"] as? String
+        //cell.textLabel?.text = weratherArray[indexPath.row]["County"] as? String
         cell.textLabel?.text = weratherArray[indexPath.row]["County"] as? String
         return cell
     }
@@ -110,15 +112,24 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
 
             let data = try Data(contentsOf: location)
 
-            let dataDic = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers ) as? [String : AnyObject]
-            weratherArray = dataDic!?["County"] as! [AnyObject]
-    
+            let dataDic = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers ) as? [[String : AnyObject]]
+            //weratherArray = dataDic!?["County"] as! [AnyObject]
+  
+            for weratherArray in dataDic!! {
+                let county : AnyObject! = weratherArray["County"]
+                print(county)
+                
+                //weratherArray["County"] as! [AnyObject]
+            }
+
             self.tableView.reloadData()
            
         } catch {
             print("Error")
             
         }
+        
+    
     }
 
 
