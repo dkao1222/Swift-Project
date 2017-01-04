@@ -13,18 +13,29 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
     var detailViewController: DetailViewController? = nil
     
     var objects = [Any]()
-    var weratherArray = [AnyObject]()
-
+    var weratherArray = [AnyObject]() // Create Temp Array
+    var countyArray = [AnyObject]()
+    var siteNameArray = [AnyObject]()
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set data from Opendata get JSON format
         let url = URL(string: "http://opendata2.epa.gov.tw/AQX.json")
+        
+        // Config using URLSession and set Default
         let sessionWuthConfig = URLSessionConfiguration.default
+        
+        // Config URLSession and forword to self
         let session = URLSession(configuration: sessionWuthConfig, delegate: self, delegateQueue: nil)
+        
+        // set start up task type using download Task
         let dataTask = session.downloadTask(with: url!)
+        
+        // task Startup
         dataTask.resume()
         
         
@@ -89,8 +100,10 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
         //let object = objects[indexPath.row] as! NSDate
         //cell.textLabel!.text = object.description
         //cell.textLabel?.text = weratherArray[indexPath.row]["A_Name_Ch"] as? String
-        //cell.textLabel?.text = weratherArray[indexPath.row]["County"] as? String
-        cell.textLabel?.text = weratherArray[indexPath.row]["County"] as? String
+       
+        cell.textLabel?.text = weratherArray[indexPath.row] as? String
+        
+        
         return cell
     }
 
@@ -109,24 +122,33 @@ class MasterViewController: UITableViewController, URLSessionDelegate, URLSessio
     }
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        
+        
         do {
 
             //var dataArray = [AnyObject]()
             let data = try Data(contentsOf: location)
+            //let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            
 
-            if let dataDic = try? JSONSerialization.jsonObject(with: data, options: .allowFragments ) as? [[String : AnyObject]] {
-                //weratherArray = dataDic[["County"]] as! [AnyObject]
-                for dataArray in dataDic! {
-                    let County : AnyObject! = dataArray["County"]
-                    print(County)
-//                    self.weratherArray.append(County)
-                    weratherArray.append(County)
+            if let dataArray = json as? [[String : AnyObject]] {
+                for jsonArray in dataArray {
+//                    let County  = jsonArray["County"] as AnyObject!
+                    let SiteName = jsonArray["SiteName"] as AnyObject!
+//                    let Status = jsonArray["Status"] as AnyObject!
+//                    let PM10 = jsonArray["PM10"] as AnyObject!
+//                    let PM25 = jsonArray["PM2.5"] as AnyObject!
+//                    let PublishTime = jsonArray["PublishTime"] as AnyObject!
                     
                     
+                    weratherArray.append(SiteName as AnyObject)
+
+                    //print(County)
                 }
-                
+                //weratherArray.append(dataArray["County"])
             }
- 
+            //weratherArray = dataArray?[0]["County"] as? [AnyObject]
             self.tableView.reloadData()
            
         } catch {
