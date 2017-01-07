@@ -99,6 +99,41 @@ class TableViewController: UITableViewController {
             cell.PM10.backgroundColor = UIColor.gray
         }
         
+        if Int(PM25Label!)! <= 16 {
+            cell.PM25.backgroundColor = UIColor.init(red: 102/255, green: 255/255, blue: 158/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 17 && Int(PM25Label!)! <= 33 {
+            cell.PM25.backgroundColor = UIColor.init(red: 0/255, green: 255/255, blue: 26/266, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 34 && Int(PM25Label!)! <= 50 {
+            cell.PM25.backgroundColor = UIColor.init(red: 0/255, green: 220/255, blue: 17/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 51 && Int(PM25Label!)! <= 58 {
+            cell.PM25.backgroundColor = UIColor.init(red: 248/255, green: 255/255, blue: 17/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 59 && Int(PM25Label!)! <= 66 {
+            cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 211/255, blue: 0/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 67 && Int(PM25Label!)! <= 75 {
+            cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 150/255, blue: 0/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 76 && Int(PM25Label!)! <= 83 {
+            cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 75/255, blue: 85/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 84 && Int(PM25Label!)! <= 91 {
+            cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)
+            cell.PM25.textColor = UIColor.black
+        } else if Int(PM25Label!)! >= 92 && Int(PM25Label!)! <= 100 {
+            cell.PM25.backgroundColor = UIColor.init(red: 169/255, green: 0/255, blue: 0/255, alpha: 1)
+            cell.PM25.textColor = UIColor.white
+        } else if Int(PM25Label!)! >= 101  {
+            cell.PM25.backgroundColor = UIColor.init(red: 232/255, green: 0/255, blue: 254/255, alpha: 1)
+            cell.PM25.textColor = UIColor.white
+        } else {
+            cell.PM25.backgroundColor = UIColor.gray
+        }
+
+        
         return cell
     }
     
