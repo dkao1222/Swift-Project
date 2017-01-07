@@ -65,6 +65,7 @@ class TableViewController: UITableViewController {
         let PM10Label = weatherArray[indexPath.row]["PM10"] as? String
         let PM25Label = weatherArray[indexPath.row]["PM2.5"] as? String
         
+        // PM10
         if Int(PM10Label!)! <= 16 {
             cell.PM10.backgroundColor = UIColor.init(red: 102/255, green: 255/255, blue: 158/255, alpha: 1)
             cell.PM10.textColor = UIColor.black
@@ -99,34 +100,35 @@ class TableViewController: UITableViewController {
             cell.PM10.backgroundColor = UIColor.gray
         }
         
-        if Int(PM25Label!)! <= 16 {
+        // PM2.5
+        if Int(PM25Label!)! <= 11 {
             cell.PM25.backgroundColor = UIColor.init(red: 102/255, green: 255/255, blue: 158/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 17 && Int(PM25Label!)! <= 33 {
+        } else if Int(PM25Label!)! >= 12 && Int(PM25Label!)! <= 23 {
             cell.PM25.backgroundColor = UIColor.init(red: 0/255, green: 255/255, blue: 26/266, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 34 && Int(PM25Label!)! <= 50 {
+        } else if Int(PM25Label!)! >= 24 && Int(PM25Label!)! <= 35 {
             cell.PM25.backgroundColor = UIColor.init(red: 0/255, green: 220/255, blue: 17/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 51 && Int(PM25Label!)! <= 58 {
+        } else if Int(PM25Label!)! >= 36 && Int(PM25Label!)! <= 41 {
             cell.PM25.backgroundColor = UIColor.init(red: 248/255, green: 255/255, blue: 17/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 59 && Int(PM25Label!)! <= 66 {
+        } else if Int(PM25Label!)! >= 42 && Int(PM25Label!)! <= 47 {
             cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 211/255, blue: 0/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 67 && Int(PM25Label!)! <= 75 {
+        } else if Int(PM25Label!)! >= 48 && Int(PM25Label!)! <= 53 {
             cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 150/255, blue: 0/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 76 && Int(PM25Label!)! <= 83 {
+        } else if Int(PM25Label!)! >= 54 && Int(PM25Label!)! <= 58 {
             cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 75/255, blue: 85/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 84 && Int(PM25Label!)! <= 91 {
+        } else if Int(PM25Label!)! >= 59 && Int(PM25Label!)! <= 64 {
             cell.PM25.backgroundColor = UIColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)
             cell.PM25.textColor = UIColor.black
-        } else if Int(PM25Label!)! >= 92 && Int(PM25Label!)! <= 100 {
+        } else if Int(PM25Label!)! >= 65 && Int(PM25Label!)! <= 70 {
             cell.PM25.backgroundColor = UIColor.init(red: 169/255, green: 0/255, blue: 0/255, alpha: 1)
             cell.PM25.textColor = UIColor.white
-        } else if Int(PM25Label!)! >= 101  {
+        } else if Int(PM25Label!)! >= 71  {
             cell.PM25.backgroundColor = UIColor.init(red: 232/255, green: 0/255, blue: 254/255, alpha: 1)
             cell.PM25.textColor = UIColor.white
         } else {
