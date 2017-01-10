@@ -77,7 +77,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            MessageLabel.text = "No QR code is detected"
+            MessageLabel.text = "No  BarCode is detected"
             return
         }
         
