@@ -40,7 +40,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             
             
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode128Code]
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypePDF417Code]
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -77,7 +77,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            MessageLabel.text = "No  BarCode is detected"
+            MessageLabel.text = "No BarCode is detected"
             return
         }
         
@@ -107,7 +107,36 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if metadataObj.stringValue != nil {
                 MessageLabel.text = metadataObj.stringValue
             }
+        } else if metadataObj.type == AVMetadataObjectTypeEAN13Code {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = (barCodeObject?.bounds)!
+            
+            if metadataObj.stringValue != nil {
+                MessageLabel.text = metadataObj.stringValue
+            }
+        } else if metadataObj.type == AVMetadataObjectTypePDF417Code {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = (barCodeObject?.bounds)!
+            
+            if metadataObj.stringValue != nil {
+                MessageLabel.text = metadataObj.stringValue
+            }
+        } else if metadataObj.type == AVMetadataObjectTypeUPCECode {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = (barCodeObject?.bounds)!
+            
+            if metadataObj.stringValue != nil {
+                MessageLabel.text = metadataObj.stringValue
+            }
+        } else if metadataObj.type == AVMetadataObjectTypeEAN8Code {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = (barCodeObject?.bounds)!
+            
+            if metadataObj.stringValue != nil {
+                MessageLabel.text = metadataObj.stringValue
+            }
         }
+
 
     }
 
