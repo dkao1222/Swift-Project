@@ -141,8 +141,8 @@
 				TargetAttributes = {
 					5E39EB381E03ACB2009E1706 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = TB75929WHJ;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = QJ66SET8M7;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -363,12 +363,15 @@
 			baseConfigurationReference = F764D1AC1E74F28828B608DC /* Pods-BMIcacl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				DEVELOPMENT_TEAM = TB75929WHJ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = QJ66SET8M7;
 				INFOPLIST_FILE = BMIcacl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dkao1222.BMIcacl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dkao1222.BMIcaclv1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f253f707-1cf6-4f39-8120-582240335ee6";
+				PROVISIONING_PROFILE_SPECIFIER = BMICacl;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -380,12 +383,15 @@
 			baseConfigurationReference = 9CE590852082E4E8ED730EFC /* Pods-BMIcacl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				DEVELOPMENT_TEAM = TB75929WHJ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = QJ66SET8M7;
 				INFOPLIST_FILE = BMIcacl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dkao1222.BMIcacl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dkao1222.BMIcaclv1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f253f707-1cf6-4f39-8120-582240335ee6";
+				PROVISIONING_PROFILE_SPECIFIER = BMICacl;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
